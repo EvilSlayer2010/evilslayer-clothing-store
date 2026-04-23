@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StyleZone - Clothing Store</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #f9f9f9;
+      color: #111;
+    }
+
+    /* HEADER */
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    header p {
+      font-size: 13px;
+      color: #aaa;
+      letter-spacing: 2px;
+    }
+
+    /* NAVIGATION BUTTONS */
+    nav {
+      background-color: #111;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      padding: 14px 28px;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-right: 1px solid #333;
+      transition: background 0.3s;
+    }
+
+    nav a:first-child {
+      border-left: 1px solid #333;
+    }
+
+    nav a:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* HERO BANNER */
+    .hero {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+      border-bottom: 4px solid #fff;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: #bbb;
+      margin-bottom: 30px;
+      letter-spacing: 2px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      background-color: #fff;
+      color: #000;
+      padding: 14px 36px;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 2px solid #fff;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-white:hover {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: #fff;
+      padding: 14px 36px;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 2px solid #fff;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* CATEGORY BUTTONS */
+    .categories {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #fff;
+    }
+
+    .categories h3 {
+      font-size: 20px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      color: #000;
+    }
+
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .category-buttons a {
+      text-decoration: none;
+      background-color: #000;
+      color: #fff;
+      padding: 12px 28px;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 2px solid #000;
+      transition: all 0.3s;
+    }
+
+    .category-buttons a:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* PRODUCTS SECTION */
+    .products {
+      padding: 50px 40px;
+      background-color: #f2f2f2;
+    }
+
+    .products h3 {
+      text-align: center;
+      font-size: 22px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+      color: #000;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      text-align: center;
+      padding: 20px 16px;
+      transition: box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      margin-bottom: 16px;
+      border: 1px solid #eee;
+    }
+
+    .product-card h4 {
+      font-size: 15px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .product-card .tag {
+      font-size: 11px;
+      color: #888;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .product-card .price {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 4px;
+      color: #000;
+    }
+
+    .product-card .old-price {
+      font-size: 13px;
+      color: #999;
+      text-decoration: line-through;
+      margin-bottom: 16px;
+    }
+
+    .btn-buy {
+      display: inline-block;
+      background-color: #000;
+      color: #fff;
+      padding: 10px 24px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 2px solid #000;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      width: 100%;
+    }
+
+    .btn-buy:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* OFFERS STRIP */
+    .offers {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 16px;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* ABOUT SECTION */
+    .about {
+      background-color: #fff;
+      padding: 60px 40px;
+      text-align: center;
+      border-top: 1px solid #eee;
+    }
+
+    .about h3 {
+      font-size: 22px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .about p {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #555;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    /* CONTACT */
+    .contact {
+      background-color: #111;
+      color: #fff;
+      padding: 50px 40px;
+      text-align: center;
+    }
+
+    .contact h3 {
+      font-size: 20px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .contact p {
+      color: #aaa;
+      margin-bottom: 10px;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .contact-buttons a {
+      text-decoration: none;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 12px 28px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+
+    .contact-buttons a:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #000;
+      color: #666;
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      border-top: 1px solid #222;
+    }
+
+    /* BADGE */
+    .badge {
+      display: inline-block;
+      background-color: #000;
+      color: #fff;
+      font-size: 10px;
+      letter-spacing: 1px;
+      padding: 3px 8px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div>
+      <h1>StyleZone</h1>
+      <p>Premium Fashion Store</p>
+    </div>
+    <div style="color:#aaa; font-size:13px; letter-spacing:1px;">
+      🛒 Cart (0) &nbsp;|&nbsp; 👤 Login
+    </div>
+  </header>
+
+  <!-- NAV BUTTONS -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#shirts">Shirts</a>
+    <a href="#pants">Pants</a>
+    <a href="#sale">Sale</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- OFFERS STRIP -->
+  <div class="offers">
+    🎉 Free Shipping on Orders Above ₹999 &nbsp;|&nbsp; Use Code: STYLE20 for 20% Off
+  </div>
+
+  <!-- HERO BANNER -->
+  <section class="hero" id="home">
+    <h2>New Collection</h2>
+    <p>Autumn / Winter 2026 — Elegance Redefined</p>
+    <div class="hero-buttons">
+      <a href="#products" class="btn-white">Shop Now</a>
+      <a href="#sale" class="btn-outline">View Sale</a>
+    </div>
+  </section>
+
+  <!-- CATEGORY BUTTONS -->
+  <section class="categories">
+    <h3>Shop by Category</h3>
+    <div class="category-buttons">
+      <a href="#shirts">👔 Shirts</a>
+      <a href="#pants">👖 Pants</a>
+      <a href="#sale">🏷️ On Sale</a>
+    </div>
+  </section>
+
+  <!-- SHIRTS SECTION -->
+  <section class="products" id="shirts">
+    <h3>Shirts</h3>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <span class="badge">New Arrival</span>
+        <img src="/mnt/user-data/uploads/1776958824193_image.png" alt="Royal Blue Linen Shirt">
+        <h4>Royal Blue Linen Shirt</h4>
+        <div class="tag">Men's Casual Shirt</div>
+        <div class="old-price">₹1,799</div>
+        <div class="price">₹1,199</div>
+        <a href="#" class="btn-buy">Add to Cart</a>
+      </div>
+
+      <div class="product-card">
+        <span class="badge">Bestseller</span>
+        <img src="/mnt/user-data/uploads/1776958835233_image.png" alt="Khaki Cargo Shirt">
+        <h4>Khaki Cargo Shirt</h4>
+        <div class="tag">Men's Casual Shirt</div>
+        <div class="old-price">₹1,999</div>
+        <div class="price">₹1,399</div>
+        <a href="#" class="btn-buy">Add to Cart</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PANTS SECTION -->
+  <section class="products" id="pants" style="background-color:#fff;">
+    <h3>Pants</h3>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <span class="badge">New Arrival</span>
+        <img src="/mnt/user-data/uploads/1776958789228_image.png" alt="Classic Blue Denim Jeans">
+        <h4>Classic Blue Denim Jeans</h4>
+        <div class="tag">Men's Slim Fit Jeans</div>
+        <div class="old-price">₹2,299</div>
+        <div class="price">₹1,499</div>
+        <a href="#" class="btn-buy">Add to Cart</a>
+      </div>
+
+      <div class="product-card">
+        <span class="badge">Bestseller</span>
+        <img src="/mnt/user-data/uploads/1776958807644_image.png" alt="Beige Formal Trousers">
+        <h4>Beige Formal Trousers</h4>
+        <div class="tag">Men's Formal Pants</div>
+        <div class="old-price">₹2,499</div>
+        <div class="price">₹1,699</div>
+        <a href="#" class="btn-buy">Add to Cart</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <h3>About StyleZone</h3>
+    <p>
+      We bring you the finest in contemporary fashion. From everyday essentials
+      to premium statement pieces, StyleZone is your one-stop destination for
+      modern, elegant, and affordable clothing.
+    </p>
+    <a href="#shirts" class="btn-white" style="border:2px solid #000;">Explore Collection</a>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h3>Get in Touch</h3>
+    <p>📧 support@stylezone.in</p>
+    <p>📞 +91 98765 43210</p>
+    <p>📍 Model Town, Ludhiana, Punjab</p>
+    <div class="contact-buttons">
+      <a href="mailto:support@stylezone.in">Email Us</a>
+      <a href="tel:+919876543210">Call Us</a>
+      <a href="#">WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 StyleZone. All Rights Reserved. | Ludhiana, Punjab</p>
+  </footer>
+
+</body>
+</html>
